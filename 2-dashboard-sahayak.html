@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sahayak | Dashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amita:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/main_styles.css">
+  </head>
+  <body id="page-top">
+    <div id="page">
+    <section>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white topbar shadow p-3 ">
+              
+              <div class="container">
+                <a class="navbar-brand" href="#" style="font-family: 'Amita', cursive;"><h1>sahayak | </h1></a><a class="navbar-brand p-2 mb-2 d-sm-block"> Centralized Medical System</a>
+                
+                
+                <!-- Topbar Navbar -->
+                <button class="navbar-toggler " type="button" data-toggle="collapse"
+                data-target="#collapsenavbar1">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse rounded-left" id="collapsenavbar1">
+                  
+                  <ul class="navbar-nav ml-auto p-2 ">
+                    <li class="nav-item dropdown no-arrow">
+                      <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                        <span class="mr-2 font-weight-bold text-gray-600">Abhishek</span>
+                        <img class="img-profile rounded-circle" style="width: 40px" src="images/abhi.png">
+                      </a>
+                      <!-- Dropdown - User Information -->
+                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="5-userpanel-sahayak.html">
+                          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Profile
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Settings
+                        </a>
+                        <a class="dropdown-item" href="6-activitylog-sahayak.html">
+                          <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Activity Log
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Logout
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+    </section>
+    <section class="home pb-5">
+        <header class="header" id="header">
+        <div class="header_nav" id="header_nav_pin">
+          <div class="header_nav_inner">
+            <div class="header_nav_container">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="header_nav_content d-flex flex-row align-items-center justify-content-start">
+                      <nav class="main_nav">
+                        <ul class="d-flex flex-row align-items-center justify-content-start">
+                          <li class="active"><a href="index.html">Home</a></li>
+                          <li><a href="about.html">About Us</a></li>
+                          <li><a href="services.html">Services</a></li>
+                          <li><a href="news.html">News</a></li>
+                          <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                      </nav>
+                      <div class="search_content d-flex flex-row align-items-center justify-content-end ml-auto">
+                        <form action="#" id="search_container_form" class="search_container_form">
+                          <input type="text" class="search_container_input" placeholder="Search" required="required">
+                          <button class="search_container_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>   
+    </header>
+ </section>
+          
+          
+          <!-- Card -->
+          <section class="p-5">
+          <div class="container text-dark alert-heading mt-5 mb-5">
+                  <h2 class="text-center font-weight-bold">Corona live Count</h2>
+              </div>
+
+              <div class="container text-dark">
+                  <div class="row d-flex justify-content-around align-items-center text-center">
+                  <div class="  pt-1 pb-0 pl-5 pr-5">
+                    <h1 class="count ">1019000</h1>
+                    <p>Total</p>
+                  </div>
+                  <div class="  pt-1 pb-0 pl-5 pr-5">
+                    <h1 class="count">753000</h1>
+                    <p>Recovered</p>
+                  </div> 
+                  <div class="  pt-1 pb-0 pl-5 pr-5 ">
+                    <h1 class="count">1500</h1>
+                    <p>Active</p>
+                  </div> 
+                  <div class="  pt-1 pb-0 pl-5 pr-5 ">
+                    <h1 class="count">28000</h1>
+                    <p>Death</p>
+                  </div>
+                  </div>
+              </div>
+          </section>    
+          <section class="container-fluid">
+              <div class="row mt-5 mb-5">
+                <div class="col-lg-7 col-md-7 col-12 mx-1 ml-lg-5">
+                  <div class="card shadow mb-3 align-content-center">
+                    <div class="card-header py-3 d-flex flow-row align-items-center mb-4 justify-content-between">
+                      <h5 class="m-0 font-weight-bold text-primary">Alerts</h5>
+                      <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" role="button" id="dropdownmenulink" href="#"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownmenulink">
+                          <a class="dropdown-item" href="#">View all news</a>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="card-body">
+                        <h4 class="flash animated infinite small font-weight-bold" style="color: rgb(239,66,54);">21,000 New positive patients in one day - Times Of India Report<span class="float-right">14/07/2020</span></h4>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="small font-weight-bold">Health and family welfare deopartment of Government Added 15 More Schemes To help People.<span class="float-right">14/07/2020</span></h4>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="small font-weight-bold">Government Provide Rs 50 Lakh health Insurance Per Health Care Worker - TOI news.<span class="float-right">26/04/2020</span></h4>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="small font-weight-bold">Government Provide Rs 50 Lakh health Insurance Per Health Care Worker - TOI news.<span class="float-right">26/04/2020</span></h4>
+                      </div>
+                    </div>
+                  </div>
+              <div class="col-lg-3 col-md-3 col-12 ml-lg-4">
+                <div class="row card shadow mx-auto mb-3 " style="width: 27rem;height: 10rem;">
+                    <img class="card-img-bottom m-auto" src="images/scheme.png" alt="Card image "style="width: 5rem; height: 5rem">
+                    <div class="card-body m-3">
+                      <h4 class="card-title text-dark font-weight-bold">Scheme</h4>
+                      <a href="3-scheme-sahayak.html" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                  <div class="row card shadow mx-auto" style="width: 27rem; height: 10rem;" >
+                    <img class="card-img-bottom m-auto" src="images/facility.jpg" alt="Card image " style="width: 5rem;height: 5rem">
+                    <div class="card-body m-3">
+                      <h4 class="card-title text-dark font-weight-bold">Facility</h4>
+                      <a href="4-facility-sahayak.html" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                </div> 
+
+              </div>
+          </section>
+          
+          
+
+          <section>
+            <div class="container-fluid pb-3">
+              <div class="row justify-content-center ">
+                <!-- pie chart -->
+                <div class="col-xl-5 col-lg-5 m-4">
+                  <div class="card shadow mt-3">
+                    
+                    <!-- card header dropdown -->
+                    <div class="card-header py-3 d-flex flow-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                      <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" role="button" id="dropdownmenulink" href="#"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownmenulink">
+                          <div class="dropdown-header">Dropdown Header:</div>
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another Action</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Something else</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card body -->
+                    <div class="card-body">
+                      <div class="chart-pie pt-4 pb-2">
+                        <canvas id="myPieChart"></canvas>
+                      </div>
+                      <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-primary"></i> Direct
+                        </span>
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-success"></i> Social
+                        </span>
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-info"></i> Referral
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Area Chart -->
+                <div class="col-xl-5 col-lg-5 m-4">
+                  <div class="card shadow mt-3">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                      <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                          <div class="dropdown-header">Dropdown Header</div>
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                      <div class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>       
+              </div>
+            </div>
+          </section>
+
+
+          <div class="container-fluid mt-5">
+            <h1 class="text-center text-capitalize text-dark pt-4">about us</h1>
+            <hr class="w-50 mx-auto text-dark pt-5">
+          </div>
+  
+  <footer id="colorlib-footer" class="bg-dark pt-5" role="contentinfo">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row row-pb-md">
+        <div class="col-md-3 colorlib-widget">
+          <h2>Sahayak</h2>
+          <h5>Centralized Medical System</h5>
+          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+        </div>
+        <div class="col-md-3 col-md-push-1 colorlib-widget">
+          <h3>Navigation</h3>
+          <ul class="colorlib-footer-links">
+            <li><a href="#"><i class="icon-check"></i> Department</a></li>
+            <li><a href="#"><i class="icon-check"></i> Blog</a></li>
+            <li><a href="#"><i class="icon-check"></i> Contact</a></li>
+            <li><a href="#"><i class="icon-check"></i> Terms</a></li>
+            <li><a href="#"><i class="icon-check"></i> Shop</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 colorlib-widget">
+          <h3>Our Services</h3>
+          <ul class="colorlib-footer-links">
+            <li><a href="#"><i class="icon-check"></i> Heart Surgery</a></li>
+            <li><a href="#"><i class="icon-check"></i> Surgical Treatment</a></li>
+            <li><a href="#"><i class="icon-check"></i> General Treatment</a></li>
+            <li><a href="#"><i class="icon-check"></i> Medical Treatment</a></li>
+            <li><a href="#"><i class="icon-check"></i> Help Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 colorlib-widget">
+          <h3>Make an Appointment</h3>
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name" class="sr-only">Name</label>
+              <input type="name" class="form-control" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label for="email" class="sr-only">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="message" class="sr-only">Message</label>
+              <textarea class="form-control" id="message" rows="3" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" id="btn-submit" class="btn btn-primary btn-send-message btn-md" value="Send Message">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row copyright">
+      <div class="col-md-12 text-center">
+        <p>
+          <small class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</small>
+        </p>
+      </div>
+    </div>
+  </footer>      
+</div>
+ 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha512-d8F1J2kyiRowBB/8/pAWsqUl0wSEOkG5KATkVV4slfblq9VRQ6MyDZVxWl2tWd+mPhuCbpTB4M7uU/x9FlgQ9Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+   <script>
+
+      $('.count').counterUp({
+        delay:10,
+        time:3000
+      })
+
+    </script>
+
+  </body>
+</html>
