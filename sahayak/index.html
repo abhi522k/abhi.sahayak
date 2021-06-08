@@ -1,0 +1,370 @@
+<?php
+	require_once('select.php');
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Sahayak</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-Calendar.css">
+    <link rel="stylesheet" href="assets/css/Custom-Card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+
+  bottom: 400;
+  right: 500px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4e73df;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #ddd;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <div class="dropdown show no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true" href="profile.html"><img class="border rounded-circle img-profile" src="assets/img/IMG_9325.JPG" style="width: 80px;height: 81px;margin-bottom: 7px;margin-left: 20px;"><h1 style="color: rgb(249,250,251);font-size: 20px;"><a href="profile.html" style="color: rgb(251,251,252);">Dr. Sharma</a></h1>
+                    <h1
+                        style="color: rgb(249,250,251);font-size: 15px;">Shahu Hospital,Pune</h1>
+                        </a>
+                        <div class="dropdown-menu show shadow dropdown-menu-right animated--grow-in" role="menu" style="background-color: #4e73df;filter: blur(88px);"></div>
+                </div>
+                <header></header>
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-hover-animate="flash" href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+					<a class="nav-link active" data-bs-hover-animate="flash" onclick="openForm()" href="#"><i class="fas fa-plus"></i><span>Add Patient</span></a>
+					<a class="nav-link active" data-bs-hover-animate="flash" onclick="openForm()" href="#"><i class="fas fa-book-medical"></i><span>History</span></a>
+					<a class="nav-link active" data-bs-hover-animate="flash" href="Scheme.php"><i class="fas fa-clipboard-list"></i><span>Schemes</span></a>
+					  <a
+                                class="nav-link active" data-bs-hover-animate="flash" href="index.html"><i class="fas fa-calendar-check"></i><span>Appointments</span></a>
+								</li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+				
+		<script>
+			function openForm() {
+			  document.getElementById("myForm").style.display = "block";
+			}
+
+			function closeForm() {
+			  document.getElementById("myForm").style.display = "none";
+			}
+		</script>
+		
+		<div class="form-popup" id="myForm">
+		  <form class="form-container" action="" method="post">
+			<h1>Patient ID</h1>
+			<input type="text" placeholder="Enter ID" name="id" required>
+			<div>
+			<button type="submit" class="btn" name="submit">Check</button>
+			<button type="button" class="btn cancel" onclick="closeForm()">Close</button></div>
+		  </form>
+		</div>
+			
+		<?php  
+			if(isset($_POST["submit"])){  
+			  
+			if(!empty($_POST['id'])) {  
+				$id=$_POST['id']; 
+				
+				$query=mysql_query("SELECT * FROM Patient WHERE Patient_id=".$id"");  
+				$numrows=mysql_num_rows($query); 				
+				if($numrows!=0)  
+				{  
+				alert("found!!");
+				while($row=mysql_fetch_assoc($query))  
+				{  
+				$dbid=$row['Patient_id'];    
+				}  
+			  
+				if($id == $dbid)  
+				{  
+				session_start();  
+				$_SESSION['sess_user']=$id;  
+			  
+				header("Location: History.html");  
+				}  
+				} else {  
+				echo "Invalid username or password!";  
+				}  
+			  
+			} else {  
+				echo "All fields are required!";  
+			}  
+			}  
+		?>  
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <h1 style="font-family: Bitter, serif;">Sahayak</h1>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1" role="presentation">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fab fa-rocketchat fa-fw" style="font-size: 30px;"></i><span class="badge badge-danger badge-counter">7</span></a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
+                                        role="menu"></div>
+                                </div>
+                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4" style="width: 134;height: 31px;">
+                        <h3 class="text-dark mb-0">Dashboard</h3>
+                        <div><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" href="#generateCase" style="width: 136;height: 31;font-size: 14px;"><i class="fa fa-download" style="margin-right: 10px;"></i>Generate Case</a></div>
+                        <div class="modal fade"
+                            role="dialog" tabindex="-1" id="generateCase">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title text-justify align-items-center align-content-center align-self-center" style="font-family: Bitter, serif;font-size: 16px;color: #4e73df;filter: blur(0px) hue-rotate(0deg) invert(0%);margin-left: 180px;">OPD RECEIPT</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                    <div class="modal-body">
+                                        <p style="margin: px;margin-bottom: 5px;">Hospital Name&nbsp;</p>
+                                        <h1 style="font-size: 16px;margin-bottom: 5px;">Phone No</h1>
+                                        <div></div>
+                                        <div class="card">
+                                            <div class="card-body" style="padding: 5px;">
+                                                <h1 style="font-size: 15px;font-family: Bitter, serif;">OPD No:<input type="text" style="margin-left: 200px;"></h1>
+                                                <h1 style="font-size: 15px;font-family: Bitter, serif;">Patient Name:<input type="text" style="margin-left: 165px;"></h1>
+                                                <h1 style="font-size: 15px;font-family: Bitter, serif;">Department:<input type="text" style="margin-left: 175px;"></h1>
+                                                <h1 style="font-size: 15px;font-family: Bitter, serif;">Doc Name:<input type="text" style="margin-left: 180px;"></h1>
+                                                <ul class="list-group"></ul>
+                                                <h1 style="font-size: 15px;font-family: Bitter, serif;">Receipt Type<input type="text" style="margin-left: 170px;"></h1>
+                                                <h1 style="font-size: 15px;font-family: Bitter, serif;">Total Fees:<input type="text" style="margin-left: 185px;"></h1>
+                                                <h1 style="font-size: 15px;font-family: Bitter, serif;">Paid Cash:<input type="text" style="margin-left: 186px;"></h1>
+                                                <h1 style="font-size: 20px;font-family: Bitter, serif;">Room No<input type="text" style="margin-left: 172px;width: 81px;height: 50px;"></h1>
+                                            </div>
+                                        </div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<section class="p-5">
+          <div class="container text-dark alert-heading mt-5 mb-5">
+                  <h2 class="text-center font-weight-bold">Corona Live Count</h2>
+				  <table class="table table-hover">
+					<thead>
+					  <tr>
+						<th>Total Cases</th>
+						<th>Total Deaths</th>
+						<th>Total Recovered</th>
+					  </tr>
+					<thead>
+					<tbody>
+					  <tr id ="data">
+						<script>
+						$(document).ready(function(){
+							init()
+						
+							function init(){
+								var url = 'https://api.covid19api.com/summary'
+								var data = ''
+								
+								$.get(url,function(data){
+									console.log(data.Global)
+									
+									data = '
+									
+										<td>${data.Global.TotalConfirmed}</td>
+										<td>${data.Global.TotalDeaths}</td>
+										<td>${data.Global.TotalRecovered}</td>
+										
+									'
+									$("#data").html(data)
+								})
+							}
+						})
+										
+	</script>
+					  </tr>
+				</table>
+								  
+				  
+              </div>
+
+              <div class="container text-dark">
+                  <div class="row d-flex justify-content-around align-items-center text-center">
+                  <div class="  pt-1 pb-0 pl-5 pr-5">
+				
+                                      
+                  </div>
+              </div>
+          </section>  
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">News</h6>
+                                    <div class="dropdown show no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="true" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu show shadow dropdown-menu-right animated--fade-in"
+                                            role="menu"><a class="dropdown-item" role="presentation" href="#">&nbsp;View All News</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="flash animated infinite small font-weight-bold" style="color: rgb(239,66,54);">21,000 New positive patients in one day - Times Of India Report<span class="float-right">14/07/2020</span></h4>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">Health and family welfare deopartment of Government Added 15 More Schemes To help People.<span class="float-right">14/07/2020</span></h4>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">Government Provide Rs 50 Lakh health Insurance Per Health Care Worker - TOI news.<span class="float-right">26/04/2020</span></h4>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">Government Provide Rs 50 Lakh health Insurance Per Health Care Worker - TOI news.<span class="float-right">26/04/2020</span></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="text-primary font-weight-bold m-0">Meetings/Appointment</h6>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Ms. Patil</strong></h6>
+                                                <h6 class="mb-0" style="font-size: 10px;"><strong>Meeting</strong></h6><span class="text-xs">10:30 AM</span></div>
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox" id="formCheck-1"><label class="custom-control-label" for="formCheck-1"></label></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Hotel Jay</strong></h6>
+                                                <h6 class="mb-0" style="font-size: 10px;"><strong>Visit</strong></h6><span class="text-xs">11:30 AM</span></div>
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox" id="formCheck-2"><label class="custom-control-label" for="formCheck-2"></label></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Mr. Shinde</strong></h6>
+                                                <h6 class="mb-0" style="font-size: 10px;"><strong>Appointment</strong></h6><span class="text-xs">12:30 AM</span></div>
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox" id="formCheck-3"><label class="custom-control-label" for="formCheck-3"></label></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Centralized Medical System</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	
+</body>
+	
+	
+
+</html>

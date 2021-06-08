@@ -1,0 +1,201 @@
+.custom-btn {
+  float: right;
+  display: inline-block;
+  font-weight: 400;
+  color: #858796;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: initial;
+  line-height: 1;
+  border-radius: .35rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border: 1px solid #e3e6f0;
+  width: 60px;
+  color: #3a3b45;
+  border-color: #cbd3e9;
+  padding: .25rem .5rem;
+  border-radius: .2rem;
+  margin-left: 5px;
+}
+
+.btn-group .btn {
+  display: flex;
+  justify-content: center;
+  line-height: 0.8;
+  border-radius: 0px;
+  font-weight: 600;
+  width: 35px;
+}
+
+@media (min-width: 576px) {
+  .btn-group .btn {
+    width: auto;
+    line-height: 0.8;
+    border-radius: 0px;
+    font-weight: 600;
+  }
+}
+
+.custom-btngrp .btn i {
+  display: block;
+  font-size: small;
+}
+
+@media (min-width: 576px) {
+  .custom-btngrp .btn i {
+    display: none !important;
+  }
+}
+
+.btn-group button {
+  margin-right: 8px;
+}
+
+.btn-group a {
+  margin-right: 8px;
+}
+
+.btn-group .fas.fa-ellipsis-h {
+  display: block !important;
+}
+
+.custom-btngrp span {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .custom-btngrp .btn span {
+    display: block;
+  }
+}
+
+.dropdown-menu.show {
+  width: fit-content;
+}
+
+@media (min-width: 576px) {
+  .r-cb label span {
+    display: block;
+  }
+}
+
+.r-cb span {
+  display: none;
+}
+
+.r-cb i {
+  display: inline-flex;
+}
+
+@media (min-width: 768px) {
+  .r-cb i {
+    display: none;
+  }
+}
+
+.card {
+  border-radius: 0px;
+}
+
+.card-header {
+  font-weight: 700;
+  text-align: left;
+  padding: 5px 10px 5px 21px;
+  background: white;
+  color: #4e73df;
+}
+
+.card-header .btn-group {
+  float: right;
+}
+
+.header-arrow-btn {
+  color: #4e73df;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: -3px;
+  padding: 0px;
+  width: 10px;
+  float: left;
+  font-size: 18px;
+  line-height: 0.1 !important;
+  box-shadow: none !important;
+}
+
+.fas.fa-grip-vertical:active {
+  margin-right: 10px;
+  cursor: move;
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.card-header .fas.fa-grip-vertical {
+  margin-top: 5px;
+  margin-right: 10px;
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.fas.fa-grip-vertical {
+  margin-right: 10px;
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  color: #4e73df;
+}
+
+.header-arrow-btn {
+  font-size: small;
+}
+
+.header-arrow-btn.collapsed .fa-chevron-down, .header-arrow-btn .fa-chevron-right {
+  display: none;
+}
+
+.header-arrow-btn.collapsed .fa-chevron-right, .header-arrow-btn .fa-chevron-down {
+  display: block;
+}
+
+.header-arrow-btn i {
+  color: rgb(78,115,223);
+}
+
+@media (min-width: 992px) {
+  .header-margin {
+    margin-top: 43px;
+  }
+}
+
+.tab-content {
+  padding: 5px 0px;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #4e73df;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  border-bottom: 3px solid #4e73df;
+  color: #4e73df;
+}
+
+.nav-tabs .nav-link {
+  color: grey;
+  border: none;
+  padding: 5px 0px;
+  margin-right: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+

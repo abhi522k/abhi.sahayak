@@ -1,0 +1,148 @@
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+.home
+{
+	width: 100%;
+	height: 100%;
+}
+
+.header_nav
+{
+  z-index: 2;
+}
+
+.header_nav_inner
+{
+  width: 100%;
+}
+.header_nav_container
+{
+  z-index: 1;
+  background: #32c69a;
+}
+
+.header_nav_content
+{
+  height: 78px;
+}
+
+.main_nav
+{
+  height: 100%;
+}
+.main_nav ul
+{
+  height: 100%;
+}
+.main_nav ul li
+{
+  position: relative;
+}
+.main_nav ul li:not(:last-child)
+{
+  margin-right: 70px;
+}
+.main_nav ul li a
+{
+  display: block;
+  position: relative;
+  height: 100%;
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  z-index: 1;
+  text-transform: uppercase;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.main_nav ul li a:hover,
+.main_nav ul li.active a
+{
+  color: rgba(255,255,255,0.75);
+}
+
+.search_content
+{
+  height: 60px;
+}
+
+.search_container_button
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 37px;
+  height: 37px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #FFFFFF;
+}
+
+.search_container_form
+{
+  position: relative;
+  width: 337px;
+}
+
+
+.header
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #FFFFFF;
+	z-index: 100;
+}
+
+.navbar {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: .5rem 1rem;
+}
+
+.department-wrap .department-info .block {
+      margin-bottom: 30px;
+      padding: 1em 2em;
+      background: whitesmoke;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s; }
+
+      .colorlib-nav .num .icon, .colorlib-nav .loc .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      display: table;
+      width: 60px;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.04);
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%; }
+
+      .gototop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+
+    .colorlib-nav .top {
+    display: block;
+    width: 100%;
+    padding: 10px 0 20px 0; }
