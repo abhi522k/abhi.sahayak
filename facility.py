@@ -1,17 +1,3 @@
-import pandas as pd
-import numpy as np
-import mysql.connector
-
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-###### helper functions. Use them when needed #######
-def get_title_from_index(index):
-	return df[df.index == index]["title"].values[0]
-
-def get_index_from_title(title):import pandas as pd
-import numpy as np
-import mysql.connector
-
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 ###### helper functions. Use them when needed #######
@@ -21,7 +7,7 @@ def get_title_from_index(index):
 def get_index_from_title(facility_name):
 	return df[df.facility_name == facility_name]["index"].values[0]
 
-def get_schemedesc_from_index(index):
+def get_facilitydesc_from_index(index):
     return df[df.index == index]["facility_description"].values[0]
 ##################################################
 
@@ -58,31 +44,31 @@ df["combined_fearures"] = df.apply(combine_feature,axis=1)
 
 ##Step 4: Create count matrix from this new combined column
 cv = CountVectorizer()
-
 count_matrix = cv.fit_transform(df["combined_fearures"])
+
 ##Step 5: Compute the Cosine Similarity based on the count_matrix
 cosine_sim = cosine_similarity(count_matrix)
 #print(cosine_sim)
-scheme_user_likes = get_title_from_index([0])
+facility_user_likes = get_title_from_index([0])
 
 ## Step 6: Get index of this scheme from its title
-scheme_index = get_index_from_title(scheme_user_likes)
+facility_index = get_index_from_title(facility_user_likes)
 
-similar_scheme = list(enumerate(cosine_sim[scheme_index]))
+similar_scheme = list(enumerate(cosine_sim[facility_index]))
 
 ## Step 7: Get a list of similar scheme in descending order of similarity score
-sorted_similar_scheme = sorted(similar_scheme,key=lambda x:x[1],reverse=True)
+sorted_similar_facility = sorted(similar_scheme,key=lambda x:x[1],reverse=True)
 
 ## Step 8: Print titles of first 50 scheme
 mycursor = con.cursor()
 mycursor.execute("DELETE FROM refacility")
   
 i=0
-for scheme in sorted_similar_scheme:
-    if get_title_from_index(scheme[0])!=scheme_user_likes:
-        #print(get_title_from_index(scheme[0]),get_schemedesc_from_index(scheme[0]))
-        ab=get_title_from_index(scheme[0])
-        cd=get_schemedesc_from_index(scheme[0])
+for facility in sorted_similar_facility:
+    if get_title_from_index(facility[0])!=facility_user_likes:
+        #print(get_title_from_index(facility[0]),get_facilitydesc_from_index(facility[0]))
+        ab=get_title_from_index(facility[0])
+        cd=get_facilitydesc_from_index(facility[0])
         sql = "INSERT INTO refacility (facilityid, facilityname, facilitydesc) VALUES (%s, %s, %s)"
         val = (i, ab, cd)
         mycursor.execute(sql, val)
